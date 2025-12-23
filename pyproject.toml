@@ -1,0 +1,56 @@
+[project]
+name = "send_money_agent"
+version = "0.0.1"
+description = "Send Money Agent"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk",
+    # Add your production dependencies here
+]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.8.0",
+    "covdefaults>=2.3.0",
+    "ipdb>=0.13.13",
+    "ipykernel>=6.29.5",
+    "ipython>=9.1.0",
+    "matplotlib>=3.10.1",
+    "mypy==1.15.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.3.5",
+    "pytest-asyncio>=1.0.0",
+    "pytest-xdist>=3.6.1",
+    "pydantic>=2.7",
+    "ruff==0.11.6",
+    "scikit-learn>=1.7.1",
+    "types-cachetools>=5.5.0.20240820",
+    "types-requests>=2.32.0.20250328",
+]
+
+[tool.coverage.run]
+plugins = ["covdefaults"]
+
+[tool.coverage.report]
+fail_under = 70
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+no_implicit_reexport = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = [
+    "tests.*",
+]
+check_untyped_defs = false
+disallow_untyped_defs = false
+disallow_any_generics = false
+disallow_incomplete_defs = false
