@@ -1,11 +1,14 @@
-from typing import TypedDict, Optional, List
+from typing import TypedDict
+
 
 class TransferState(TypedDict):
-    recipient: Optional[str]
-    amount: Optional[float]
-    country: Optional[str]
-    delivery_method: Optional[str]
+    recipient: str | None
+    amount: float | None
+    country: str | None
+    delivery_method: str | None
     is_confirmed: bool
+    status: str  # 'COLLECTING', 'AWAITING_CONFIRMATION', 'COMPLETED'
+
 
 def get_initial_state() -> TransferState:
     return {
@@ -13,5 +16,6 @@ def get_initial_state() -> TransferState:
         "amount": None,
         "country": None,
         "delivery_method": None,
-        "is_confirmed": False
+        "is_confirmed": False,
+        "status": "COLLECTING",
     }
