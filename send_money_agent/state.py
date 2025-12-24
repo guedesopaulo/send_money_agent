@@ -1,3 +1,4 @@
+from typing import Literal
 from typing import TypedDict
 
 
@@ -7,7 +8,7 @@ class TransferState(TypedDict):
     country: str | None
     delivery_method: str | None
     is_confirmed: bool
-    status: str  # 'COLLECTING', 'AWAITING_CONFIRMATION', 'COMPLETED'
+    status: Literal["COLLECTING", "AWAITING_CONFIRMATION", "COMPLETED"]
 
 
 def get_initial_state() -> TransferState:

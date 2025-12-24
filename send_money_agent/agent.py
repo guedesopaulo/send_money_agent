@@ -1,5 +1,6 @@
 from google.adk.agents.llm_agent import Agent
 
+from .state import get_initial_state
 from .tools import complete_transfer
 from .tools import get_transfer_summary
 from .tools import lookup_recipient
@@ -22,6 +23,8 @@ You are a 'Send Money' expert. Your job is to fill the transfer state using tool
    (e.g., 'Change country to Brazil'), call 'update_transfer_details'
    and then show the new summary.
 """
+
+initial_state = get_initial_state()
 
 root_agent = Agent(
     model="gemini-flash-lite-latest",
