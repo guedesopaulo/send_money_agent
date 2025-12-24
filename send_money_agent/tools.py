@@ -124,7 +124,7 @@ def update_transfer_details(
 
 
 def lookup_recipient(name: str) -> str:
-    """Checks if a name is ambiguous in the contact list."""
+    """Checks if a name is ambiguous or new in the contact list."""
     if not name:
         return "Please provide a name to look up."
 
@@ -134,10 +134,14 @@ def lookup_recipient(name: str) -> str:
     if len(hits) > 1:
         hits_str = ", ".join(hits)
         return f"AMBIGUOUS: Found {len(hits)} contacts: {hits_str}. Which one?"
+
     if len(hits) == 1:
         return f"Contact found: {hits[0]}"
 
-    return f"New recipient '{name}' will be added."
+    return (
+        f"NEW_CONTACT: I couldn't find '{name}' in your contacts. "
+        "Do you want to add this person as a new recipient?"
+    )
 
 
 def get_transfer_summary() -> str:
