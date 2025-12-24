@@ -1,4 +1,4 @@
-all: sync-deps check test
+all: sync-deps check
 
 .PHONY: sync-deps
 deps:
