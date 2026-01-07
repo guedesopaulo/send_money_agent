@@ -72,3 +72,36 @@ uv run adk web --port 8000
 ```
 
 Then open your browser at http://localhost:8000 (or change the `--port` value).
+
+# Next Steps
+
+To further enhance the Send Money Agent, here are some potential improvements and future directions:
+
+1. **Chat History on State**:
+   - Extend the state to include a `chat_history` field to track the raw conversation history.
+   - In the future, implement a database (e.g., SQLite) to persist chat history across sessions for better context retention.
+
+2. **Dynamic Tool Registration**:
+   - Refactor the agent to use a dynamic tool registration system.
+   - This will make the agent more modular and extensible, allowing tools to be added or removed without modifying the core agent code.
+
+3. **Simplistic State Representation**:
+   - Improve the current flat state structure to support more complex scenarios, such as multi-recipient transfers or nested data.
+   - Consider using a class-based state representation for better encapsulation and validation.
+
+4. **Hardcoded Data**:
+   - Replace hardcoded data (e.g., supported countries, delivery methods, mock contacts) with external configuration files or a database.
+   - This will make the agent easier to maintain and scale.
+
+5. **No Logging or Debugging**:
+   - Add logging to capture tool inputs, outputs, and errors for better debugging and monitoring.
+   - Use a structured logging library to ensure logs are easy to analyze.
+
+6. **No Unit Tests**:
+   - Write unit tests for the agent, tools, and state management to ensure reliability and prevent regressions.
+   - Use a testing framework like `pytest` to automate and manage tests.
+   - Implement CI on github/gitlab with pipeline test
+
+7. **No Guardrails**:
+   - Implement guardrails to handle unexpected inputs or edge cases.
+   - For example, validate user inputs, handle ambiguous responses, and provide fallback mechanisms for tool failures.
